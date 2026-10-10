@@ -1,4 +1,4 @@
-import { tasks, rawTaskPayload } from "./task.data";
+ import { tasks, rawTaskPayload } from "./task.data";
 import type { OnOpenTask } from "./task.types";
 import {
   printTask,
@@ -17,11 +17,16 @@ console.log("\nTASKS IN PROGRESS (doing)");
 const doingTasks = filterTasks(tasks, "doing");
 doingTasks.forEach(printTask);
 
-// 3. Tính tổng số giờ dự kiến
+// 3. Filter danh sách theo trạng thái "archived"
+console.log("\nARCHIVED TASKS");
+const archivedTasks = filterTasks(tasks, "archived");
+archivedTasks.forEach(printTask);
+
+// 4. Tính tổng số giờ dự kiến
 const totalHours = calculateTotalHours(tasks);
 console.log(`\n>>> TOTAL ESTIMATED HOURS: ${totalHours} hours`);
 
-// 4. Callback mô phỏng hành động mở Task + Safe Null Check
+// 5. Callback mô phỏng hành động mở Task + Safe Null Check
 const openTask: OnOpenTask = (taskId) => {
   const task = findTaskById(tasks, taskId);
   if (task !== null) {
@@ -36,7 +41,7 @@ console.log("\nSIMULATING USER ACTIONS");
 openTask("T101");      // Task có tồn tại
 openTask("T999");      // Task không tồn tại
 
-// 5. Kiểm tra dữ liệu thô (raw data) bằng Type Guard & State Machine
+// 6. Kiểm tra dữ liệu thô (raw data) bằng Type Guard & State Machine
 console.log("\nVALIDATING RAW EXTERNAL DATA");
 const state = toTaskState(rawTaskPayload);
 

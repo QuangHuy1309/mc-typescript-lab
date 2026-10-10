@@ -1,6 +1,6 @@
 // Union Types định nghĩa các tập giá trị hữu hạn (ngăn ngừa typo) 
 export type TaskPriority = "low" | "medium" | "high"; 
-export type TaskStatus = "todo" | "doing" | "done"; 
+export type TaskStatus = "todo" | "doing" | "done" | "archived"; 
 
 // Status dùng cho bộ lọc (bao gồm tất cả hoặc theo status cụ thể) 
 export type TaskFilter = "all" | TaskStatus; 

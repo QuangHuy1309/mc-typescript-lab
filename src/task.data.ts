@@ -35,6 +35,15 @@ export const tasks: Task[] = [
     priority: "low",
     status: "todo",
     assignee: null
+  },
+  {
+    id: "T105",
+    title: "Optimize Performance",
+    estimatedHours: 8,
+    priority: "medium",
+    status: "archived", // status mới (archived) không có trong TaskStatus cũ
+    assignee: "Eve",
+    note: "Focus on database queries"
   }
 ];
 
@@ -56,5 +65,13 @@ export const rawTaskPayload: unknown = [
     status: "todo",
     assignee: null,
     note: "Lab01 assignment submission"
+  },
+  {
+    id: "T203",
+    title: "Conduct Code Review",
+    estimatedHours: 3,
+    priority: "high",
+    status: "archived", // status mới (archived) không có trong TaskStatus cũ
+    assignee: "Dana"
   }
 ];
