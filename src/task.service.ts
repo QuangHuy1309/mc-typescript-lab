@@ -37,7 +37,7 @@ export function isTask(value: unknown): value is Task {
   
   // Kiểm tra các thuộc tính có giới hạn giá trị (Union Types)
   const validPriority = item.priority === "low" || item.priority === "medium" || item.priority === "high";
-  const validStatus = item.status === "todo" || item.status === "doing" || item.status === "done";
+  const validStatus = item.status === "todo" || item.status === "doing" || item.status === "done" || item.status === "archived";
   
   // Kiểm tra Nullable và Optional
   const validAssignee = item.assignee === null || typeof item.assignee === "string";
