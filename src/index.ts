@@ -7,17 +7,13 @@ import {
   findTaskById,
   toTaskState
 } from "./task.service";
-
-console.log("==========================================");
-console.log("          TASK POCKET CONSOLE LOGIC       ");
-console.log("==========================================");
-
+console.log("TASK POCKET CONSOLE LOGIC");
 // 1. In toàn bộ danh sách công việc
-console.log("\n--- ALL TASKS ---");
+console.log("\nALL TASKS");
 tasks.forEach(printTask);
 
 // 2. Filter danh sách theo trạng thái "doing"
-console.log("\n--- TASKS IN PROGRESS (doing) ---");
+console.log("\nTASKS IN PROGRESS (doing)");
 const doingTasks = filterTasks(tasks, "doing");
 doingTasks.forEach(printTask);
 
@@ -36,12 +32,12 @@ const openTask: OnOpenTask = (taskId) => {
   }
 };
 
-console.log("\n--- SIMULATING USER ACTIONS ---");
+console.log("\nSIMULATING USER ACTIONS");
 openTask("T101");      // Task có tồn tại
 openTask("T999");      // Task không tồn tại
 
 // 5. Kiểm tra dữ liệu thô (raw data) bằng Type Guard & State Machine
-console.log("\n--- VALIDATING RAW EXTERNAL DATA ---");
+console.log("\nVALIDATING RAW EXTERNAL DATA");
 const state = toTaskState(rawTaskPayload);
 
 switch (state.status) {
@@ -56,5 +52,3 @@ switch (state.status) {
     state.data.forEach(printTask);
     break;
 }
-
-console.log("\n==========================================");
